@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: fa03eb2c36edacf449fd725575411036
-timeCreated: 1453810404
+timeCreated: 1455996356
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Ivan_0
     21300002: Ivan_1
     21300004: Ivan_2
+    21300006: Ivan_3
+    21300008: Ivan_4
+    21300010: Ivan_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,14 +67,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 10}
-        - {x: -11, y: 6}
-        - {x: -11, y: -6}
-        - {x: -7, y: -10}
-        - {x: 9, y: -10}
-        - {x: 11, y: -9}
-        - {x: 11, y: 7}
-        - {x: 10, y: 10}
+      - - {x: -11, y: 16}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 10, y: 16}
     - name: Ivan_1
       rect:
         serializedVersion: 2
@@ -83,15 +82,14 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 4, y: 9}
-        - {x: -5, y: 9}
-        - {x: -11, y: 2}
-        - {x: -11, y: -9}
-        - {x: -9, y: -10}
-        - {x: 10, y: -10}
-        - {x: 10, y: -7}
-        - {x: 11, y: -5}
-        - {x: 11, y: 2}
+      - - {x: 10, y: 5}
+        - {x: 9, y: 13}
+        - {x: 7, y: 16}
+        - {x: -10, y: 16}
+        - {x: -11, y: 13}
+        - {x: -11, y: -15}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
     - name: Ivan_2
       rect:
         serializedVersion: 2
@@ -103,13 +101,67 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 10}
-        - {x: -11, y: 3}
-        - {x: -11, y: -7}
-        - {x: -10, y: -10}
-        - {x: 11, y: -10}
-        - {x: 11, y: 3}
-        - {x: 4, y: 10}
+      - - {x: 10, y: 5}
+        - {x: 9, y: 13}
+        - {x: 7, y: 16}
+        - {x: -10, y: 16}
+        - {x: -11, y: 13}
+        - {x: -11, y: -15}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
+    - name: Ivan_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 16}
+        - {x: -11, y: 16}
+        - {x: -11, y: -14}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
+        - {x: 10, y: 5}
+        - {x: 9, y: 13}
+    - name: Ivan_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 5}
+        - {x: 9, y: 13}
+        - {x: 7, y: 16}
+        - {x: -10, y: 16}
+        - {x: -11, y: 13}
+        - {x: -11, y: -15}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
+    - name: Ivan_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 10, y: 8}
+        - {x: 9, y: 16}
     outline:
     - - {x: 0, y: 0}
       - {x: 0, y: 4}

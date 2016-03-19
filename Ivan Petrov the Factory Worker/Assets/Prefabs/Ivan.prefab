@@ -10,10 +10,10 @@ GameObject:
   - 4: {fileID: 403344}
   - 212: {fileID: 21288748}
   - 95: {fileID: 9539948}
-  - 61: {fileID: 6132556}
   - 50: {fileID: 5027900}
   - 114: {fileID: 11441136}
   - 114: {fileID: 11470326}
+  - 60: {fileID: 6059878}
   m_Layer: 0
   m_Name: Ivan
   m_TagString: Player
@@ -116,8 +116,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6132556
-BoxCollider2D:
+--- !u!60 &6059878
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -126,10 +126,16 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_Offset: {x: 0, y: -4}
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 3.25}
+  m_Points:
+    m_Paths:
+    - - {x: -3, y: 0}
+      - {x: -1, y: 1.5}
+      - {x: 1, y: 1.5}
+      - {x: 3, y: 0}
+      - {x: 1, y: -1.5}
+      - {x: -1, y: -1.5}
 --- !u!81 &8141880
 AudioListener:
   m_ObjectHideFlags: 1
@@ -172,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763efbe90bfd5214696593768ff6990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16
+  speed: 20
 --- !u!114 &11470326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,11 +190,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7d56b59b95ea04b822fcd164e2c7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
-  satiety: 8
-  happiness: 8
-  drunkeness: 8
-  patriotism: 8
+  health: 100
+  satiety: 100
+  happiness: 100
+  drunkeness: 0
+  patriotism: 100
+  healthSlider: {fileID: 0}
+  satietySlider: {fileID: 0}
+  happinessSlider: {fileID: 0}
+  drunkenessSlider: {fileID: 0}
+  patriotismSlider: {fileID: 0}
 --- !u!124 &12457608
 Behaviour:
   m_ObjectHideFlags: 1

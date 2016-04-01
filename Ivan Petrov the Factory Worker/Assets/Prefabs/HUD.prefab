@@ -136,8 +136,6 @@ GameObject:
   - 114: {fileID: 11432214}
   - 114: {fileID: 11498026}
   - 225: {fileID: 22539128}
-  - 114: {fileID: 11455008}
-  - 114: {fileID: 11475728}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -803,17 +801,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &11455008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50ab99955ddc544686acfa1e7a8538b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11459012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -889,17 +876,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11475728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50ab99955ddc544686acfa1e7a8538b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11484444
 MonoBehaviour:
   m_ObjectHideFlags: 1

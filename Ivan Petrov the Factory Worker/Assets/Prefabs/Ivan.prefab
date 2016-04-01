@@ -12,7 +12,6 @@ GameObject:
   - 95: {fileID: 9539948}
   - 50: {fileID: 5027900}
   - 114: {fileID: 11441136}
-  - 114: {fileID: 11470326}
   - 60: {fileID: 6059878}
   m_Layer: 0
   m_Name: Ivan
@@ -179,27 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &11470326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7d56b59b95ea04b822fcd164e2c7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  satiety: 100
-  happiness: 100
-  drunkeness: 0
-  patriotism: 100
-  healthSlider: {fileID: 0}
-  satietySlider: {fileID: 0}
-  happinessSlider: {fileID: 0}
-  drunkenessSlider: {fileID: 0}
-  patriotismSlider: {fileID: 0}
 --- !u!124 &12457608
 Behaviour:
   m_ObjectHideFlags: 1

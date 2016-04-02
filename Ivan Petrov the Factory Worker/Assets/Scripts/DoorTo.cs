@@ -7,7 +7,7 @@ public class DoorTo : MonoBehaviour {
     public float x, y;
 
 	void OnCollisionEnter2D (Collision2D c) {
-        GameObject.Find ("GameManagement").GetComponent<GameManagement> ().playOptions.appearAt = new Vector3 (x, y, 0);
+        GameManagement.gameData.betweener.appearAt = new Vector3 (x, y, 0);
 		SceneManager.LoadScene (doorTo);
 	}
 }

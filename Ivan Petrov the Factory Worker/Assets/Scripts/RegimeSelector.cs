@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class RegimeSelector : MonoBehaviour {
     public void Select(string r) {
-        GameObject.Find ("GameManagement").GetComponent<GameManagement> ().Play (r);
+        GameManagement.Load (r);
+        SceneManager.LoadScene (GameManagement.gameData.betweener.location.ToString ());
     }
 }

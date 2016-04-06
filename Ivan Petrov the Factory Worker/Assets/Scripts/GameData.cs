@@ -45,6 +45,21 @@ public enum Location {
     Market
 }
 
+public enum Stat {
+    Health,
+    Satiety,
+    Happiness,
+    Drunkeness,
+    Patriotism
+}
+
+public enum StatCondition {
+    LessThan20,
+    MoreThan80,
+    Zero,
+    Hundred
+}
+
 [Serializable]
 public sealed class VectorData {
     public float x, y, z;

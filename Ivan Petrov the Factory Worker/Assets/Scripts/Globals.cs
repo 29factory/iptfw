@@ -17,21 +17,27 @@ public static class Globals {
         statEffectGraph [Stat.Health] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 3;
         statEffectGraph [Stat.Health] [StatCondition.LessThan20] [Stat.Patriotism] = p => p - 3;
         statEffectGraph [Stat.Satiety] = new Dictionary<StatCondition, Dictionary<Stat, Func<float, float>>> ();
+        statEffectGraph [Stat.Satiety] [StatCondition.MoreThan80] = new Dictionary<Stat, Func<float, float>> ();
         statEffectGraph [Stat.Satiety] [StatCondition.MoreThan80] [Stat.Health] = p => p + 3;
         statEffectGraph [Stat.Satiety] [StatCondition.MoreThan80] [Stat.Happiness] = p => p + 2;
         statEffectGraph [Stat.Satiety] [StatCondition.MoreThan80] [Stat.Patriotism] = p => p + 4;
+        statEffectGraph [Stat.Satiety] [StatCondition.LessThan20] = new Dictionary<Stat, Func<float, float>> ();
         statEffectGraph [Stat.Satiety] [StatCondition.LessThan20] [Stat.Health] = p => p - 2;
         statEffectGraph [Stat.Satiety] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 2;
         statEffectGraph [Stat.Satiety] [StatCondition.LessThan20] [Stat.Patriotism] = p => p - 4;
         statEffectGraph [Stat.Drunkeness] = new Dictionary<StatCondition, Dictionary<Stat, Func<float, float>>> ();
+        statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] = new Dictionary<Stat, Func<float, float>> ();
         statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] [Stat.Health] = p => p - 4;
         statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] [Stat.Happiness] = p => p + 8;
         statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] [Stat.Satiety] = p => p - 2;
         statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] [Stat.Patriotism] = p => p + 11;
+        statEffectGraph [Stat.Drunkeness] [StatCondition.LessThan20] = new Dictionary<Stat, Func<float, float>> ();
         statEffectGraph [Stat.Drunkeness] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 3;
         statEffectGraph [Stat.Drunkeness] [StatCondition.LessThan20] [Stat.Patriotism] = p => p - 4;
         statEffectGraph [Stat.Patriotism] = new Dictionary<StatCondition, Dictionary<Stat, Func<float, float>>> ();
-        statEffectGraph [Stat.Drunkeness] [StatCondition.MoreThan80] [Stat.Happiness] = p => p + 4;
-        statEffectGraph [Stat.Drunkeness] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 3;
+        statEffectGraph [Stat.Patriotism] [StatCondition.MoreThan80] = new Dictionary<Stat, Func<float, float>> ();
+        statEffectGraph [Stat.Patriotism] [StatCondition.MoreThan80] [Stat.Happiness] = p => p + 4;
+        statEffectGraph [Stat.Patriotism] [StatCondition.LessThan20] = new Dictionary<Stat, Func<float, float>> ();
+        statEffectGraph [Stat.Patriotism] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 3;
     }
 }

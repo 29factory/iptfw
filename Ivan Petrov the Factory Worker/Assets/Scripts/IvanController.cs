@@ -15,7 +15,9 @@ public class IvanController : MonoBehaviour {
 	void FixedUpdate () {
 		GetComponent<Rigidbody2D> ().velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
 		GetComponent<Animator> ().SetBool ("IsWalking", GetComponent<Rigidbody2D> ().velocity != new Vector2 (0f, 0f));
-        if (Input.GetButtonDown ("Cancel"))
+        if (Input.GetButtonDown ("Cancel")) {
             GameManagement.Save ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position);
+            SceneManager.LoadScene ("Pause");
+        }
 	}
 }

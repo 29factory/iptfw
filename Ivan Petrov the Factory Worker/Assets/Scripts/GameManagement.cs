@@ -23,7 +23,7 @@ public static class GameManagement {
         Load (r.ToString ());
     }
 
-    public static void Load(string r) {
+    public static void Load (string r) {
         if (File.Exists (Path.Combine (Globals.savingPath, r + Globals.savingExt))) {
             FileStream loadingFile = File.Open (Path.Combine (Globals.savingPath, r + Globals.savingExt), FileMode.Open, FileAccess.Read);
             gameData = (GameData) new BinaryFormatter ().Deserialize (loadingFile);
@@ -34,5 +34,9 @@ public static class GameManagement {
 
     public static void CreateGameData (Location l, VectorData p, Regime r = Regime.Zheleznov) {
         gameData = GameData.Create (p, r, l);
+    }
+
+    public static void Delete (string r) {
+        File.Delete (Path.Combine (Globals.savingPath, r + Globals.savingExt));
     }
 }

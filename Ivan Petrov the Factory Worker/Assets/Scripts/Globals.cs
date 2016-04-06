@@ -2,7 +2,7 @@
 using System;
 
 public static class Globals {
-    public static readonly string savingPath = UnityEngine.Application.persistentDataPath;
+    public static readonly string savingPath = UnityEngine.Application.persistentDataPath + System.IO.Path.DirectorySeparatorChar + "Saves";
     public static readonly string savingExt = ".whyitshouldbesomethingshort";
 
     public static readonly Dictionary<Stat, Dictionary<StatCondition, Dictionary<Stat, Func<float, float>>>> statEffectGraph;

@@ -1,12 +1,22 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using System.Linq;
 
 public class SceneBuilder : EditorWindow {
     public static Vector2 ghostPosition = new Vector2(0, 0);
     public static Vector2 ghostSize = new Vector2(1, 1);
     private static int fillType = 0;
     private static Sprite sprite1, sprite2;
+
+    [MenuItem("Window/Test Gradient")]
+    public static void TestGradient () {
+        GameObject g = new GameObject ();//Instantiate (new GameObject(), new Vector3(-100, -100), Quaternion.identity) as GameObject;
+        g.AddComponent<SpriteRenderer> ();
+        SpriteRenderer s = g.GetComponent<SpriteRenderer> ();
+        // TODO: это работает не так. Плодит текстуру для каждого инстанса. не загружать текстуру из ассетов а прикреплять к строителю
+        GradientProvider.GetSprite (ref s, AssetDatabase.LoadAllAssetsAtPath ("Assets/Sprites/Grass.png").Select (x => x as Texture2D).ToArray(), 15);
+    }
 
     [MenuItem("Window/Scene Builder")]
     public static void ShowWindow () {

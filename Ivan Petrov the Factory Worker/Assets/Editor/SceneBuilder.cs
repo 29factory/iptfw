@@ -7,16 +7,25 @@ public class SceneBuilder : EditorWindow {
     public static Vector2 ghostPosition = new Vector2(0, 0);
     public static Vector2 ghostSize = new Vector2(1, 1);
     private static int fillType = 0;
-    private static Sprite sprite1, sprite2;
+    private static Texture2D tex1;
+    private static Sprite tex2;
 
-    [MenuItem("Window/Test Gradient")]
+    /*[MenuItem("Window/Test Gradient")]
     public static void TestGradient () {
-        GameObject g = new GameObject ();//Instantiate (new GameObject(), new Vector3(-100, -100), Quaternion.identity) as GameObject;
+        GameObject g = new GameObject ();
+        g.transform.position = new Vector3 (-40, -40, 0);
         g.AddComponent<SpriteRenderer> ();
-        SpriteRenderer s = g.GetComponent<SpriteRenderer> ();
-        // TODO: это работает не так. Плодит текстуру для каждого инстанса. не загружать текстуру из ассетов а прикреплять к строителю
-        GradientProvider.GetSprite (ref s, AssetDatabase.LoadAllAssetsAtPath ("Assets/Sprites/Grass.png").Select (x => x as Texture2D).ToArray(), 15);
-    }
+        SpriteRenderer r = g.GetComponent<SpriteRenderer> ();
+        GradientProvider.SetSprite (ref r, Resources.LoadAll<Sprite> ("Grass"), GradientProvider.top | GradientProvider.bottom | GradientProvider.left | GradientProvider.right);
+        //Debug.Log (AssetDatabase.LoadAssetAtPath<Sprite> ("Assets/Sprites/Grass.png/grass_0"));
+        //Debug.Log (GameObject.Find ("New Game Object").GetComponent<SpriteRenderer> ().sprite.bounds);
+        //Debug.Log (GameObject.Find ("New Game Object").GetComponent<SpriteRenderer> ().sprite.name);
+        //Debug.Log (GameObject.Find ("New Game Object").GetComponent<SpriteRenderer> ().sprite.pivot);
+        //Debug.Log (GameObject.Find ("New Game Object").GetComponent<SpriteRenderer> ().sprite.pixelsPerUnit);
+        //Debug.Log (GameObject.Find ("New Game Object").GetComponent<SpriteRenderer> ().sprite.rect);
+        // SOLVED: это работает не так. Плодит текстуру для каждого инстанса. не загружать текстуру из ассетов а прикреплять к строителю
+        // NOTE: избавиться от зависимости от Resources (мб)
+    }*/
 
     [MenuItem("Window/Scene Builder")]
     public static void ShowWindow () {
@@ -28,11 +37,11 @@ public class SceneBuilder : EditorWindow {
         ghostSize = EditorGUILayout.Vector2Field ("Size", ghostSize);
         switch (fillType = GUILayout.Toolbar (fillType, new string[]{ "Floor", "Wall" })) {
         default:
-            sprite1 = (Sprite) EditorGUILayout.ObjectField ("Floor", sprite1, typeof(Sprite), false);
+            tex1 = (Texture2D) EditorGUILayout.ObjectField ("Floor", tex1, typeof(Texture2D), false);
             break;
         case 1:
-            sprite1 = (Sprite) EditorGUILayout.ObjectField ("Top", sprite1, typeof(Sprite), false);
-            sprite2 = (Sprite) EditorGUILayout.ObjectField ("Side", sprite2, typeof(Sprite), false);
+            tex1 = (Texture2D) EditorGUILayout.ObjectField ("Top", tex1, typeof(Texture2D), false);
+            tex2 = (Sprite) EditorGUILayout.ObjectField ("Side", tex2, typeof(Sprite), false);
             break;
         }
         GUILayout.BeginHorizontal ();
@@ -42,32 +51,37 @@ public class SceneBuilder : EditorWindow {
                     for (int y = 0; y < ghostSize.y; y++) {
                         GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Floor.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
                         gameObject.name = "Floor";
-                        gameObject.GetComponent<SpriteRenderer> ().sprite = sprite1;
+                        SpriteRenderer s = gameObject.GetComponent<SpriteRenderer> ();
+                        GradientProvider.SetSprite (ref s, Resources.LoadAll<Sprite>(tex1.name), ((x == ghostSize.x-1 ? GradientProvider.right : 0) | (y == ghostSize.y-1 ? GradientProvider.top : 0) | (x == 0 ? GradientProvider.left : 0) | (y == 0 ? GradientProvider.bottom : 0)) ^ 15);
                         gameObject.transform.SetParent (GameObject.Find ("/Floor1").transform);
                     }
             } else {
                 for (int x = 0; x < ghostSize.x; x++) {
                     GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y) * 8, Quaternion.identity) as GameObject;
                     gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = sprite1;
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = sprite2;
+                    SpriteRenderer s = gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ();
+                    GradientProvider.SetSprite (ref s, Resources.LoadAll<Sprite>(tex1.name), (GradientProvider.bottom | (x > 0 && x < ghostSize.x-1 ? GradientProvider.top : 0) | (x == 0 ? GradientProvider.left : 0) | (x == ghostSize.x-1 ? GradientProvider.right : 0)) ^ 15);
+                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = tex2;
                     gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
                     gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y + ghostSize.y - 1) * 8, Quaternion.identity) as GameObject;
                     gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = sprite1;
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = sprite2;
+                    s = gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ();
+                    GradientProvider.SetSprite (ref s, Resources.LoadAll<Sprite>(tex1.name), (GradientProvider.top | (x > 0 && x < ghostSize.x-1 ? GradientProvider.bottom : 0) | (x == 0 ? GradientProvider.left : 0) | (x == ghostSize.x-1 ? GradientProvider.right : 0)) ^ 15);
+                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = tex2;
                     gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
                 }
                 for (int y = 1; y < ghostSize.y - 1; y++) {
                     GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
                     gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = sprite1;
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = sprite2;
+                    SpriteRenderer s = gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ();
+                    GradientProvider.SetSprite (ref s, Resources.LoadAll<Sprite>(tex1.name), GradientProvider.top | GradientProvider.bottom);
+                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = tex2;
                     gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
                     gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + ghostSize.x - 1, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
                     gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = sprite1;
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = sprite2;
+                    s = gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ();
+                    GradientProvider.SetSprite (ref s, Resources.LoadAll<Sprite>(tex1.name), GradientProvider.top | GradientProvider.bottom);
+                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = tex2;
                     gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
                 }
             }

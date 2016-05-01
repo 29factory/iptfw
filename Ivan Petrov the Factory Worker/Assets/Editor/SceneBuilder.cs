@@ -123,6 +123,9 @@ class FenceSetter : RawSetter {
             (f.IsExists(c, new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(c, new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
             (f.IsExists(c, new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) : 13];
+        if (f.IsExists(c, new Vector2(pos.x + 1, pos.y)) && f.IsExists(c, new Vector2(pos.x - 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
+        else if (f.IsExists(c, new Vector2(pos.x + 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [12];
+        else if (f.IsExists(c, new Vector2(pos.x - 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [14];
         if (f.IsExists(c, new Vector2(pos.x, pos.y - 1))) gameObject.transform.FindChild ("Forward").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [15];
         gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
     }

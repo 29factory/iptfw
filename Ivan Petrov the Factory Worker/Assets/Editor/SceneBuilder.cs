@@ -2,13 +2,21 @@
 using UnityEditor;
 using System.Collections;
 using System.Linq;
+using System;
+
+public class Context {
+    public Vector2 ghostPosition = new Vector2(0, 0);
+    public Vector2 ghostSize = new Vector2(1, 1);
+    public Texture2D tex1, tex2;
+    public bool isGradientUsing = true;
+}
 
 public class SceneBuilder : EditorWindow {
-    public static Vector2 ghostPosition = new Vector2(0, 0);
-    public static Vector2 ghostSize = new Vector2(1, 1);
-    private static int fillType = 0;
-    private static Texture2D tex1, tex2;
-    private static bool isGradientUsing = true;
+    private static Context c = new Context ();
+
+    private int fillType = 0, rawType = 0;
+    private MonoScript filler;
+    private RawSetter[] rawSetters = new RawSetter[] { new FloorSetter (), new WallSetter () };
 
     [MenuItem("Window/Scene Builder")]
     public static void ShowWindow () {
@@ -16,98 +24,31 @@ public class SceneBuilder : EditorWindow {
     }
 
     void OnGUI () {
-        ghostPosition = EditorGUILayout.Vector2Field ("Position", ghostPosition);
-        ghostSize = EditorGUILayout.Vector2Field ("Size", ghostSize);
-        switch (fillType = GUILayout.Toolbar (fillType, new string[]{ "Floor", "Wall" })) {
-        default:
-            tex1 = (Texture2D) EditorGUILayout.ObjectField ("Floor", tex1, typeof(Texture2D), false);
+        c.ghostPosition = EditorGUILayout.Vector2Field ("Position", c.ghostPosition);
+        c.ghostSize = EditorGUILayout.Vector2Field ("Size", c.ghostSize);
+        GUILayout.Label ("Fill type:");
+        if ((fillType = GUILayout.Toolbar (fillType, new string[]{ "Fill", "Draw", "Custom" })) == 2)
+            filler = (MonoScript)EditorGUILayout.ObjectField ("Filler", filler, typeof(MonoScript), false);
+        GUILayout.Label ("Raw type:");
+        rawType = GUILayout.Toolbar (rawType, new string[] { "Floor", "Wall", "Fence" });
+        rawSetters[rawType].ShowRequirements ();
+        c.isGradientUsing = GUILayout.Toggle (c.isGradientUsing, "Use gradient technology");
+        if (GUILayout.Button ("Build")) switch (fillType) {
+        default :
+            new Filler ().Call (c, rawSetters [rawType]);
             break;
         case 1:
-            tex1 = (Texture2D) EditorGUILayout.ObjectField ("Top", tex1, typeof(Texture2D), false);
-            tex2 = (Texture2D) EditorGUILayout.ObjectField ("Side", tex2, typeof(Texture2D), false);
+            new Drawer ().Call (c, rawSetters [rawType]);
+            break;
+        case 2:
+            ((IFiller)Activator.CreateInstance (filler.GetClass ())).Call (c, rawSetters [rawType]);
             break;
         }
-        isGradientUsing = GUILayout.Toggle (isGradientUsing, "Use gradient technology");
-        GUILayout.BeginHorizontal ();
-        if (GUILayout.Button ("Build")) {
-            if (fillType == 0) {
-                for (int x = 0; x < ghostSize.x; x++)
-                    for (int y = 0; y < ghostSize.y; y++) {
-                        GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Floor.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
-                        gameObject.name = "Floor";
-                        gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex1.name) [isGradientUsing ? GradientProvider.GetIndex ((((x == ghostSize.x - 1 ? GradientProvider.right : 0) |
-                                                                                                                                                                  (y == ghostSize.y - 1 ? GradientProvider.top : 0) |
-                                                                                                                                                                  (x == 0 ? GradientProvider.left : 0) |
-                                                                                                                                                                  (y == 0 ? GradientProvider.bottom : 0)) ^ 15) | 240) : 13];
-                        gameObject.transform.SetParent (GameObject.Find ("/Floor1").transform);
-                    }
-            } else {
-                for (int x = 0; x < ghostSize.x; x++) {
-                    GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y) * 8, Quaternion.identity) as GameObject;
-                    gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(tex1.name)[isGradientUsing ? GradientProvider.GetIndex ((GradientProvider.bottom |
-                                                                                                                                                                       (x > 0 && x < ghostSize.x-1 ? GradientProvider.top : 0) |
-                                                                                                                                                                       (x == 0 ? GradientProvider.left : 0) |
-                                                                                                                                                                       (x == ghostSize.x-1 ? GradientProvider.right : 0)) ^ 15) : 13];
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex2.name) [13];
-                    gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
-                    gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + x, ghostPosition.y + ghostSize.y - 1) * 8, Quaternion.identity) as GameObject;
-                    gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(tex1.name)[isGradientUsing ? GradientProvider.GetIndex ((GradientProvider.top |
-                                                                                                                                                                       (x > 0 && x < ghostSize.x-1 ? GradientProvider.bottom : 0) |
-                                                                                                                                                                       (x == 0 ? GradientProvider.left : 0) |
-                                                                                                                                                                       (x == ghostSize.x-1 ? GradientProvider.right : 0)) ^ 15) : 13];
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex2.name) [13];
-                    gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
-                }
-                for (int y = 1; y < ghostSize.y - 1; y++) {
-                    GameObject gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
-                    gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(tex1.name)[isGradientUsing ? GradientProvider.GetIndex (GradientProvider.top | GradientProvider.bottom) : 13];
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex2.name) [13];
-                    gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
-                    gameObject = Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), new Vector2(ghostPosition.x + ghostSize.x - 1, ghostPosition.y + y) * 8, Quaternion.identity) as GameObject;
-                    gameObject.name = "Wall";
-                    gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(tex1.name)[isGradientUsing ? GradientProvider.GetIndex (GradientProvider.top | GradientProvider.bottom) : 13];
-                    gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex2.name) [13];
-                    gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
-                }
-            }
-        }
-        if (GUILayout.Button ("Destroy")) {
-            // TODO: Это работает неправильно
-            if (fillType == 0) {
-                for (int x = 0; x < ghostSize.x; x++)
-                    for (int y = 0; y < ghostSize.y; y++) {
-                        foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject> ())
-                            if (obj.GetComponent<Transform> ().position == new Vector3 (ghostPosition.x + x, ghostPosition.y + y, 0) * 8)
-                                DestroyImmediate (obj);
-                    }
-            } else {
-                for (int x = 0; x < ghostSize.x; x++) {
-                    foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject> ())
-                        if (obj.GetComponent<Transform> ().position == new Vector3 (ghostPosition.x + x, ghostPosition.y, 0) * 8)
-                            DestroyImmediate (obj);
-                    foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject> ())
-                        if (obj.GetComponent<Transform> ().position == new Vector3 (ghostPosition.x + x, ghostPosition.y + ghostSize.y - 1, 0) * 8)
-                            DestroyImmediate (obj);
-                }
-                for (int y = 1; y < ghostSize.y - 1; y++) {
-                    foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject> ())
-                        if (obj.GetComponent<Transform> ().position == new Vector3 (ghostPosition.x, ghostPosition.y + y, 0) * 8)
-                            DestroyImmediate (obj);
-                    foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject> ())
-                        if (obj.GetComponent<Transform> ().position == new Vector3 (ghostPosition.x + ghostSize.x - 1, ghostPosition.y + y, 0) * 8)
-                            DestroyImmediate (obj);
-                }
-            }
-        }
-        GUILayout.EndHorizontal ();
     }
 
     void OnSceneGUI (SceneView scene) {
-        Handles.DrawLine (new Vector3(ghostPosition.x - 0.5f, ghostPosition.y - 0.5f) * 8, (new Vector3(ghostPosition.x - 0.5f, ghostPosition.y - 0.5f) + new Vector3(ghostSize.x, ghostSize.y)) * 8);
-        Handles.DrawSolidRectangleWithOutline (new Rect(new Vector2(ghostPosition.x - 0.5f, ghostPosition.y - 0.5f) * 8, new Vector2(ghostSize.x, ghostSize.y) * 8), Color.clear, Color.white);
+        Handles.DrawLine (new Vector3(c.ghostPosition.x - 0.5f, c.ghostPosition.y - 0.5f) * 8, (new Vector3(c.ghostPosition.x - 0.5f, c.ghostPosition.y - 0.5f) + new Vector3(c.ghostSize.x, c.ghostSize.y)) * 8);
+        Handles.DrawSolidRectangleWithOutline (new Rect(new Vector2(c.ghostPosition.x - 0.5f, c.ghostPosition.y - 0.5f) * 8, new Vector2(c.ghostSize.x, c.ghostSize.y) * 8), Color.clear, Color.white);
     }
 
     void OnEnable () {
@@ -117,5 +58,87 @@ public class SceneBuilder : EditorWindow {
 
     void OnDisable () {
         SceneView.onSceneGUIDelegate -= OnSceneGUI;
+    }
+}
+
+public interface RawSetter {
+    void ShowRequirements ();
+    void Set (Context c, IFiller f, Vector2 pos);
+}
+
+class WallSetter : RawSetter {
+    private Texture2D top, side;
+
+    public void ShowRequirements () {
+        top = (Texture2D)EditorGUILayout.ObjectField ("Top", top, typeof(Texture2D), false);
+        side = (Texture2D)EditorGUILayout.ObjectField ("Side", side, typeof(Texture2D), false);
+    }
+
+    public void Set (Context c, IFiller f, Vector2 pos) {
+        GameObject gameObject = GameObject.Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Wall.prefab"), pos * 8, Quaternion.identity) as GameObject;
+        gameObject.name = "Wall";
+        gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[c.isGradientUsing ? GradientProvider.GetIndex (((f.IsExists(c, new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
+            (f.IsExists(c, new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 13];
+        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
+        gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
+    }
+}
+
+class FloorSetter : RawSetter {
+    private Texture2D floor;
+
+    public void ShowRequirements () {
+        floor = (Texture2D)EditorGUILayout.ObjectField ("Floor", floor, typeof(Texture2D), false);
+    }
+
+    public void Set (Context c, IFiller f, Vector2 pos) {
+        GameObject gameObject = GameObject.Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Floor.prefab"), pos * 8, Quaternion.identity) as GameObject;
+        gameObject.name = "Floor";
+        gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (floor.name) [c.isGradientUsing ? GradientProvider.GetIndex ((f.IsExists(c, new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
+            (f.IsExists(c, new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0) |
+            (f.IsExists(c, new Vector2(pos.x + 1, pos.y + 1)) ? GradientProvider.first : 0) |
+            (f.IsExists(c, new Vector2(pos.x - 1, pos.y + 1)) ? GradientProvider.second : 0) |
+            (f.IsExists(c, new Vector2(pos.x - 1, pos.y - 1)) ? GradientProvider.third : 0) |
+            (f.IsExists(c, new Vector2(pos.x + 1, pos.y - 1)) ? GradientProvider.fourth : 0)) : 13];
+        gameObject.transform.SetParent (GameObject.Find ("/Floor1").transform);
+    }
+}
+
+public interface IFiller {
+    void Call (Context c, RawSetter rs);
+    bool IsExists (Context c, Vector2 pos);
+}
+
+class Filler : IFiller {
+    public void Call (Context c, RawSetter rs) {
+        for (int x = 0; x < c.ghostSize.x; x++)
+            for (int y = 0; y < c.ghostSize.y; y++)
+                rs.Set (c, this, new Vector2 (c.ghostPosition.x + x, c.ghostPosition.y + y));
+    }
+
+    public bool IsExists (Context c, Vector2 pos) {
+        return pos.x >= c.ghostPosition.x && pos.x < c.ghostPosition.x + c.ghostSize.x && pos.y >= c.ghostPosition.y && pos.y < c.ghostPosition.y + c.ghostSize.y;
+    }
+}
+
+class Drawer : IFiller {
+    public void Call (Context c, RawSetter rs) {
+        for (int x = 0; x < c.ghostSize.x; x++) {
+            rs.Set (c, this, new Vector2(c.ghostPosition.x + x, c.ghostPosition.y));
+            rs.Set (c, this, new Vector2(c.ghostPosition.x + x, c.ghostPosition.y + c.ghostSize.y - 1));
+        }
+        for (int y = 1; y < c.ghostSize.y - 1; y++) {
+            rs.Set (c, this, new Vector2(c.ghostPosition.x, c.ghostPosition.y + y));
+            rs.Set (c, this, new Vector2(c.ghostPosition.x + c.ghostSize.x - 1, c.ghostPosition.y + y));
+        }
+    }
+
+    public bool IsExists (Context c, Vector2 pos) {
+        return !((pos.x < c.ghostPosition.x || pos.x > c.ghostPosition.x + c.ghostSize.x - 1 || pos.y < c.ghostPosition.y || pos.y > c.ghostPosition.y + c.ghostSize.y - 1) ||
+            (pos.x > c.ghostPosition.x && pos.x < c.ghostPosition.x + c.ghostSize.x - 1 && pos.y > c.ghostPosition.y && pos.y < c.ghostPosition.y + c.ghostSize.y - 1));
     }
 }

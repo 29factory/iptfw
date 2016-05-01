@@ -16,7 +16,7 @@ public class SceneBuilder : EditorWindow {
 
     private int fillType = 0, rawType = 0;
     private MonoScript filler;
-    private RawSetter[] rawSetters = new RawSetter[] { new FloorSetter (), new WallSetter () };
+    private RawSetter[] rawSetters = new RawSetter[] { new FloorSetter (), new WallSetter (), new FenceSetter(), new Destroyer() };
 
     [MenuItem("Window/Scene Builder")]
     public static void ShowWindow () {
@@ -30,10 +30,10 @@ public class SceneBuilder : EditorWindow {
         if ((fillType = GUILayout.Toolbar (fillType, new string[]{ "Fill", "Draw", "Custom" })) == 2)
             filler = (MonoScript)EditorGUILayout.ObjectField ("Filler", filler, typeof(MonoScript), false);
         GUILayout.Label ("Raw type:");
-        rawType = GUILayout.Toolbar (rawType, new string[] { "Floor", "Wall", "Fence" });
+        rawType = GUILayout.Toolbar (rawType, new string[] { "Floor", "Wall", "Fence", "Void" });
         rawSetters[rawType].ShowRequirements ();
         c.isGradientUsing = GUILayout.Toggle (c.isGradientUsing, "Use gradient technology");
-        if (GUILayout.Button ("Build")) switch (fillType) {
+        if (GUILayout.Button ("Just do it!")) switch (fillType) {
         default :
             new Filler ().Call (c, rawSetters [rawType]);
             break;
@@ -105,6 +105,36 @@ class FloorSetter : RawSetter {
             (f.IsExists(c, new Vector2(pos.x - 1, pos.y - 1)) ? GradientProvider.third : 0) |
             (f.IsExists(c, new Vector2(pos.x + 1, pos.y - 1)) ? GradientProvider.fourth : 0)) : 13];
         gameObject.transform.SetParent (GameObject.Find ("/Floor1").transform);
+    }
+}
+
+class FenceSetter : RawSetter {
+    private Texture2D top, side;
+
+    public void ShowRequirements () {
+        top = (Texture2D)EditorGUILayout.ObjectField ("Top", top, typeof(Texture2D), false);
+        side = (Texture2D)EditorGUILayout.ObjectField ("Side", side, typeof(Texture2D), false);
+    }
+
+    public void Set (Context c, IFiller f, Vector2 pos) {
+        GameObject gameObject = GameObject.Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/Fence.prefab"), pos * 8, Quaternion.identity) as GameObject;
+        gameObject.name = "Fence";
+        gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[c.isGradientUsing ? GradientProvider.GetIndex ((f.IsExists(c, new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
+            (f.IsExists(c, new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
+            (f.IsExists(c, new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) : 13];
+        if (f.IsExists(c, new Vector2(pos.x, pos.y - 1))) gameObject.transform.FindChild ("Forward").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [15];
+        gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
+    }
+}
+
+class Destroyer : RawSetter {
+    public void ShowRequirements () {}
+
+    public void Set (Context c, IFiller f, Vector2 pos) {
+        foreach (GameObject go in GameObject.FindObjectsOfType <GameObject> ())
+            if (go.transform.position == new Vector3 ((pos * 8).x, (pos * 8).y, 0) && (go.name == "Floor" || go.name == "Wall"))
+                GameObject.DestroyImmediate (go);
     }
 }
 

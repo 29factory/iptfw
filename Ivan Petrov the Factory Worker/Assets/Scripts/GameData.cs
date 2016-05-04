@@ -75,6 +75,17 @@ public sealed class VectorData {
     public static implicit operator Vector3 (VectorData sv) {
         return new Vector3(sv.x, sv.y, sv.z);
     }
+
+    public static implicit operator VectorData (Vector2 v) {
+        VectorData sv = new VectorData ();
+        sv.x = v.x;
+        sv.y = v.y;
+        return sv;
+    }
+
+    public static implicit operator Vector2 (VectorData sv) {
+        return new Vector2(sv.x, sv.y);
+    }
 }
 
 [Serializable]

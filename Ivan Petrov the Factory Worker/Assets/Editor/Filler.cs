@@ -4,8 +4,10 @@ using System.Collections;
 
 public abstract class AbstractFiller {
     public Vector2 ghostPosition = new Vector2(0, 0);
+    public float scaleFactor = 8;
 
     public virtual void ShowRequirements () {
+        scaleFactor = EditorGUILayout.FloatField ("Scale Factor", scaleFactor);
         ghostPosition = EditorGUILayout.Vector2Field ("Position", ghostPosition);
     }
 
@@ -17,8 +19,18 @@ public abstract class AreaFiller : AbstractFiller {
     public Vector2 ghostSize = new Vector2(1, 1);
 
     public override void ShowRequirements () {
-        ghostPosition = EditorGUILayout.Vector2Field ("Position", ghostPosition);
+        base.ShowRequirements ();
         ghostSize = EditorGUILayout.Vector2Field ("Size", ghostSize);
+    }
+}
+
+class Dotter : AbstractFiller {
+    public override void Call (AbstractSetter rs) {
+        rs.Set (this, new Vector2 (ghostPosition.x, ghostPosition.y));
+    }
+
+    public override bool IsExists (Vector2 pos) {
+        return pos == ghostPosition;
     }
 }
 

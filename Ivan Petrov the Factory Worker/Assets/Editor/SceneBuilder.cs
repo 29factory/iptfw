@@ -8,7 +8,7 @@ public class SceneBuilder : EditorWindow {
     private int fillType = 0, rawType = 0;
     private MonoScript filler, oldFiller;
     private AbstractFiller[] fillers = new AbstractFiller[] { new Filler (), new Drawer (), new Dotter(), null };
-    private AbstractSetter[] rawSetters = new AbstractSetter[] { new FloorSetter (), new WallSetter (), new FenceSetter(), new DoorSetter(), new Destroyer() };
+    private AbstractSetter[] rawSetters = new AbstractSetter[] { new FloorSetter (), new WallSetter (), new FenceSetter(), new DoorToSetter(), new DoorSetter(), new Destroyer() };
 
     [MenuItem("Window/Scene Builder")]
     public static void ShowWindow () {
@@ -16,16 +16,14 @@ public class SceneBuilder : EditorWindow {
     }
 
     void OnGUI () {
-        GUILayout.Label ("Fill type:");
-        if ((fillType = GUILayout.Toolbar (fillType, new string[]{ "Fill", "Draw", "Dot", "Custom" })) == fillers.Length - 1) {
+        if ((fillType = EditorGUILayout.Popup ("Fill type", fillType, new string[]{ "Fill", "Draw", "Dot", "Custom" })) == fillers.Length - 1) {
             oldFiller = filler;
             filler = (MonoScript)EditorGUILayout.ObjectField ("Filler", filler, typeof(MonoScript), false);
             if (oldFiller != filler && filler != null) fillers [fillers.Length - 1] = Activator.CreateInstance (filler.GetClass ()) as AbstractFiller;
         }
         if (fillers [fillType] != null)
             fillers [fillType].ShowRequirements ();
-        GUILayout.Label ("Raw type:");
-        rawType = GUILayout.Toolbar (rawType, new string[] { "Floor", "Wall", "Fence", "Door", "Void" });
+        rawType = EditorGUILayout.Popup ("Raw type", rawType, new string[] { "Floor", "Wall", "Fence", "Door to", "Door", "Void" });
         rawSetters[rawType].ShowRequirements ();
         if (GUILayout.Button ("Just do it!") && fillers[fillType] != null)
             fillers [fillType].Call (rawSetters [rawType]);

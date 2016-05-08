@@ -19,7 +19,7 @@ public static class GradientProvider {
         gradientForms = new Dictionary<byte, Dictionary<byte, int>> ();
         for (int i = 0; i < 16; i++)
             gradientForms [Convert.ToByte (Convert.ToString(i, 2) + "1111", 2)] = new Dictionary<byte, int> ();
-        gradientForms [Convert.ToByte ("10001111", 2)] [Convert.ToByte ("10001001", 2)] = 0;
+        gradientForms [Convert.ToByte ("10001111", 2)] [Convert.ToByte ("10001001", 2)] = 13;
         gradientForms [Convert.ToByte ("11001111", 2)] [Convert.ToByte ("11001101", 2)] = 1;
         gradientForms [Convert.ToByte ("01001111", 2)] [Convert.ToByte ("01001100", 2)] = 2;
         gradientForms [Convert.ToByte ("00001111", 2)] [Convert.ToByte ("00001000", 2)] = 3;
@@ -32,7 +32,7 @@ public static class GradientProvider {
         gradientForms [Convert.ToByte ("00111111", 2)] [Convert.ToByte ("00010111", 2)] = 10;
         gradientForms [Convert.ToByte ("01101111", 2)] [Convert.ToByte ("01001110", 2)] = 11;
         gradientForms [Convert.ToByte ("10011111", 2)] [Convert.ToByte ("10011011", 2)] = 12;
-        gradientForms [Convert.ToByte ("11111111", 2)] [Convert.ToByte ("11111111", 2)] = 13;
+        gradientForms [Convert.ToByte ("11111111", 2)] [Convert.ToByte ("11111111", 2)] = 0;
         gradientForms [Convert.ToByte ("01101111", 2)] [Convert.ToByte ("01101110", 2)] = 14;
         gradientForms [Convert.ToByte ("00001111", 2)] [Convert.ToByte ("00001010", 2)] = 15;
         gradientForms [Convert.ToByte ("10011111", 2)] [Convert.ToByte ("00001011", 2)] = 16;
@@ -76,7 +76,7 @@ public static class GradientProvider {
         for (int i = 0; i < 16; i++)
             if (gradientForms [Convert.ToByte (Convert.ToString(i, 2) + "1111", 2)].ContainsKey ((byte)(form & Convert.ToByte (Convert.ToString(i, 2) + "1111", 2))))
                 return gradientForms [Convert.ToByte (Convert.ToString(i, 2) + "1111", 2)] [(byte)(form & Convert.ToByte (Convert.ToString(i, 2) + "1111", 2))];
-        return 13;
+        return 0;
         //return mul [Array.IndexOf (gradientForms, (byte)form)];
     }
 }

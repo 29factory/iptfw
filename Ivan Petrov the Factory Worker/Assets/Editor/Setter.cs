@@ -25,8 +25,8 @@ class WallSetter : AbstractSetter {
         gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[isGradientUsing ? GradientProvider.GetIndex (((f.IsExists(new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
             (f.IsExists(new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
-            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 13];
-        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
+            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 0];
+        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [0];
         gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
     }
 }
@@ -49,7 +49,7 @@ class FloorSetter : AbstractSetter {
             (f.IsExists(new Vector2(pos.x + 1, pos.y + 1)) ? GradientProvider.first : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y + 1)) ? GradientProvider.second : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y - 1)) ? GradientProvider.third : 0) |
-            (f.IsExists(new Vector2(pos.x + 1, pos.y - 1)) ? GradientProvider.fourth : 0)) : 13];
+            (f.IsExists(new Vector2(pos.x + 1, pos.y - 1)) ? GradientProvider.fourth : 0)) : 0];
         gameObject.transform.SetParent (GameObject.Find ("/Floor1").transform);
     }
 }
@@ -69,8 +69,8 @@ class FenceSetter : AbstractSetter {
         gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[isGradientUsing ? GradientProvider.GetIndex ((f.IsExists(new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
             (f.IsExists(new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
-            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) : 13];
-        if (f.IsExists(new Vector2(pos.x + 1, pos.y)) && f.IsExists(new Vector2(pos.x - 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
+            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) : 0];
+        if (f.IsExists(new Vector2(pos.x + 1, pos.y)) && f.IsExists(new Vector2(pos.x - 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [0];
         else if (f.IsExists(new Vector2(pos.x + 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [12];
         else if (f.IsExists(new Vector2(pos.x - 1, pos.y))) gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [14];
         if (f.IsExists(new Vector2(pos.x, pos.y - 1))) gameObject.transform.FindChild ("Forward").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [15];
@@ -97,8 +97,8 @@ class DoorToSetter : AbstractSetter {
         gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[isGradientUsing ? GradientProvider.GetIndex (((f.IsExists(new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
             (f.IsExists(new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
-            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 13];
-        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
+            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 0];
+        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [0];
         gameObject.GetComponent<DoorTo> ().doorTo = doorTo;
         gameObject.GetComponent<DoorTo> ().appearAt = appearAt;
         gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
@@ -121,9 +121,9 @@ class DoorSetter : AbstractSetter {
         gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[isGradientUsing ? GradientProvider.GetIndex (((f.IsExists(new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
             (f.IsExists(new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
-            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 13];
-        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [13];
-        gameObject.transform.FindChild ("TopOfSide").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (topOfSide.name) [13];
+            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 0];
+        gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [0];
+        gameObject.transform.FindChild ("TopOfSide").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (topOfSide.name) [0];
         gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
     }
 }

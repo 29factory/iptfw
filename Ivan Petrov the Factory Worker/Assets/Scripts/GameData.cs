@@ -5,20 +5,11 @@ using UnityEngine;
 public sealed class GameData {
     public Regime regime;
 
-    public float health;
-    public float satiety;
-    public float happiness;
-    public float drunkeness;
-    public float patriotism;
+    public float[] stats = new float[] { 100, 80, 40, 0, 40 }, oldStats = new float[] { 100, 80, 40, 0, 40 };
 
     public SceneBetweener betweener;
 
     private GameData (Regime r, Location l, VectorData p) {
-        health = 100;
-        satiety = 80;
-        happiness = 40;
-        drunkeness = 0;
-        patriotism = 40;
         regime = r;
         betweener = new SceneBetweener ();
         betweener.location = l;
@@ -27,6 +18,19 @@ public sealed class GameData {
 
     public static GameData Create (VectorData p, Regime r = Regime.Zheleznov, Location l = Location.Home) {
         return new GameData (r, l, p);
+    }
+
+    public static StatCondition GetCondition(float value) {
+        /*if (value >= 100)
+            return StatCondition.Hundred;
+        else*/ if (value >= 80)
+            return StatCondition.MoreThan80;
+        /*else if (value <= 0)
+            return StatCondition.Zero;
+        */else if (value <= 20)
+            return StatCondition.LessThan20;
+        else
+            return StatCondition.Normal;
     }
 }
 
@@ -46,18 +50,19 @@ public enum Location {
 }
 
 public enum Stat {
-    Health,
-    Satiety,
-    Happiness,
-    Drunkeness,
-    Patriotism
+    Health = 0,
+    Satiety = 1,
+    Happiness = 2,
+    Drunkeness = 3,
+    Patriotism = 4
 }
 
 public enum StatCondition {
-    LessThan20,
-    MoreThan80,
-    Zero,
-    Hundred
+    //Zero = 0,
+    LessThan20 = 1,
+    Normal = 2,
+    MoreThan80 = 3,
+    //Hundred = 4
 }
 
 [Serializable]

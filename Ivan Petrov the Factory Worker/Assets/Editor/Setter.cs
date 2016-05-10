@@ -128,6 +128,21 @@ class DoorSetter : AbstractSetter {
     }
 }
 
+class OnWallSetter : AbstractSetter {
+    private Texture2D tex;
+
+    public override void ShowRequirements () {
+        tex = (Texture2D)EditorGUILayout.ObjectField ("Sprite", tex, typeof(Texture2D), false);
+    }
+
+    public override void Set (AbstractFiller f, Vector2 pos) {
+        GameObject gameObject = GameObject.Instantiate (AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/Prefabs/OnWall.prefab"), pos * f.scaleFactor, Quaternion.identity) as GameObject;
+        gameObject.name = "MaybeWindowMaybeNot";
+        gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (tex.name) [0];
+        gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
+    }
+}
+
 class Destroyer : AbstractSetter {
     public override void ShowRequirements () {}
 

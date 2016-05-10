@@ -25,7 +25,7 @@ class WallSetter : AbstractSetter {
         gameObject.transform.FindChild ("Top").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite>(top.name)[isGradientUsing ? GradientProvider.GetIndex (((f.IsExists(new Vector2(pos.x + 1, pos.y)) ? GradientProvider.right : 0) |
             (f.IsExists(new Vector2(pos.x, pos.y + 1)) ? GradientProvider.top : 0) |
             (f.IsExists(new Vector2(pos.x - 1, pos.y)) ? GradientProvider.left : 0) |
-            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0)) | 240) : 0];
+            (f.IsExists(new Vector2(pos.x, pos.y - 1)) ? GradientProvider.bottom : 0))/* | 240*/) : 0];
         gameObject.transform.FindChild ("Side").GetComponent<SpriteRenderer> ().sprite = Resources.LoadAll<Sprite> (side.name) [0];
         gameObject.transform.SetParent (GameObject.Find ("/Walls1").transform);
     }

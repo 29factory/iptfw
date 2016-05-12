@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public sealed class GameData {
@@ -31,6 +32,25 @@ public sealed class GameData {
             return StatCondition.LessThan20;
         else
             return StatCondition.Normal;
+    }
+
+    public void CalculateStats () {
+        foreach (int s in Enum.GetValues(typeof(Stat)))
+            oldStats [s] = stats [s];
+
+        foreach (Stat s in Enum.GetValues(typeof(Stat))) {
+            if (Globals.statEffectGraph.ContainsKey (s))
+            if (Globals.statEffectGraph [s].ContainsKey (GetCondition (oldStats [(int)s])))
+                foreach (var p in Globals.statEffectGraph[s][GetCondition(oldStats[(int) s])]) {
+                    stats [(int) p.Key] = p.Value (stats [(int) p.Key]);
+                }
+        }
+
+        foreach (int s in Enum.GetValues(typeof(Stat)))
+            stats [s] -= .2f;
+
+        foreach (Stat s in Enum.GetValues(typeof(Stat)))
+            GameObject.Find (s.ToString ()).transform.GetChild (0).GetComponent<Slider> ().value = stats [(int) s];
     }
 }
 

@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class DoorTo : MonoBehaviour {
 	public string doorTo;
+    public Vector2 appearAt;
 
-	void OnCollisionEnter2D (Collision2D c) {
+    void OnTriggerEnter2D () {
+        GameManagement.gameData.betweener.appearAt = appearAt;
 		SceneManager.LoadScene (doorTo);
 	}
 }

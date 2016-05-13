@@ -1,0 +1,903 @@
+fileFormatVersion: 2
+guid: 698953d98e4192046858703a66b67440
+timeCreated: 1462743633
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ConcreteShort_0
+    21300002: ConcreteShort_1
+    21300004: ConcreteShort_2
+    21300006: ConcreteShort_3
+    21300008: ConcreteShort_4
+    21300010: ConcreteShort_5
+    21300012: ConcreteShort_6
+    21300014: ConcreteShort_7
+    21300016: ConcreteShort_8
+    21300018: ConcreteShort_9
+    21300020: ConcreteShort_10
+    21300022: ConcreteShort_11
+    21300024: ConcreteShort_12
+    21300026: ConcreteShort_13
+    21300028: ConcreteShort_14
+    21300030: ConcreteShort_15
+    21300032: ConcreteShort_16
+    21300034: ConcreteShort_17
+    21300036: ConcreteShort_18
+    21300038: ConcreteShort_19
+    21300040: ConcreteShort_20
+    21300042: ConcreteShort_21
+    21300044: ConcreteShort_22
+    21300046: ConcreteShort_23
+    21300048: ConcreteShort_24
+    21300050: ConcreteShort_25
+    21300052: ConcreteShort_26
+    21300054: ConcreteShort_27
+    21300056: ConcreteShort_28
+    21300058: ConcreteShort_29
+    21300060: ConcreteShort_30
+    21300062: ConcreteShort_31
+    21300064: ConcreteShort_32
+    21300066: ConcreteShort_33
+    21300068: ConcreteShort_34
+    21300070: ConcreteShort_35
+    21300072: ConcreteShort_36
+    21300074: ConcreteShort_37
+    21300076: ConcreteShort_38
+    21300078: ConcreteShort_39
+    21300080: ConcreteShort_40
+    21300082: ConcreteShort_41
+    21300084: ConcreteShort_42
+    21300086: ConcreteShort_43
+    21300088: ConcreteShort_44
+    21300090: ConcreteShort_45
+    21300092: ConcreteShort_46
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 4
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ConcreteShort_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 1}
+        - {x: -6, y: -10}
+        - {x: -6, y: -16}
+        - {x: 0, y: -16}
+        - {x: 16, y: -5}
+        - {x: 16, y: 0}
+        - {x: 12, y: 1}
+    - name: ConcreteShort_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -5}
+        - {x: 11, y: -5}
+        - {x: 16, y: -4}
+        - {x: 16, y: 1}
+        - {x: 1, y: 1}
+        - {x: -16, y: 0}
+    - name: ConcreteShort_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 2}
+        - {x: -16, y: -3}
+        - {x: -6, y: -3}
+        - {x: 16, y: 1}
+        - {x: 16, y: 6}
+        - {x: 3, y: 6}
+        - {x: -8, y: 5}
+    - name: ConcreteShort_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -16, y: 1}
+        - {x: 16, y: 1}
+        - {x: 16, y: 6}
+        - {x: 15, y: 8}
+    - name: ConcreteShort_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 6}
+        - {x: -16, y: 0}
+        - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 3, y: 5}
+        - {x: 1, y: 7}
+        - {x: 0, y: 7}
+    - name: ConcreteShort_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 16}
+        - {x: -6, y: 7}
+        - {x: -1, y: 5}
+        - {x: 16, y: 5}
+        - {x: 16, y: 12}
+        - {x: 1, y: 16}
+    - name: ConcreteShort_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 5}
+        - {x: 16, y: 5}
+        - {x: 16, y: 10}
+        - {x: -16, y: 10}
+    - name: ConcreteShort_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 10}
+        - {x: -16, y: 3}
+        - {x: 16, y: 3}
+        - {x: 16, y: 8}
+        - {x: -1, y: 9}
+    - name: ConcreteShort_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 9}
+        - {x: -16, y: 4}
+        - {x: 13, y: 3}
+        - {x: 16, y: 3}
+        - {x: 16, y: 8}
+        - {x: 13, y: 9}
+    - name: ConcreteShort_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -16, y: -7}
+        - {x: -15, y: -16}
+        - {x: -9, y: -16}
+        - {x: -9, y: -8}
+        - {x: -10, y: 4}
+        - {x: -15, y: 8}
+      - - {x: -6, y: 16}
+        - {x: -6, y: -15}
+        - {x: -5, y: -16}
+        - {x: 2, y: -16}
+        - {x: 3, y: -15}
+        - {x: 4, y: 9}
+        - {x: 3, y: 16}
+    - name: ConcreteShort_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_31
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 14}
+        - {x: 2, y: 5}
+        - {x: 4, y: -7}
+        - {x: 8, y: -9}
+        - {x: 16, y: -9}
+        - {x: 16, y: 15}
+        - {x: 3, y: 15}
+    - name: ConcreteShort_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -9}
+        - {x: 16, y: -9}
+        - {x: 16, y: -4}
+        - {x: -16, y: -4}
+      - - {x: -16, y: 16}
+        - {x: -16, y: 10}
+        - {x: -10, y: 10}
+        - {x: 3, y: 11}
+        - {x: 16, y: 13}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -10}
+        - {x: 8, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -7}
+        - {x: 14, y: -3}
+        - {x: -5, y: -3}
+        - {x: -16, y: -4}
+      - - {x: -16, y: 16}
+        - {x: -16, y: 13}
+        - {x: 14, y: 11}
+        - {x: 16, y: 11}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: -9}
+        - {x: 8, y: -12}
+        - {x: 8, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: -5}
+        - {x: 14, y: -5}
+      - - {x: -15, y: 16}
+        - {x: -16, y: 16}
+        - {x: -16, y: 10}
+        - {x: -9, y: 7}
+        - {x: 11, y: 4}
+        - {x: 16, y: 4}
+        - {x: 16, y: 10}
+        - {x: 5, y: 13}
+    - name: ConcreteShort_35
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 16}
+        - {x: -16, y: -4}
+        - {x: -16, y: -10}
+        - {x: -1, y: -10}
+        - {x: 2, y: -1}
+        - {x: 2, y: 16}
+      - - {x: -14, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: 4}
+        - {x: -11, y: 4}
+        - {x: -9, y: 6}
+        - {x: -9, y: 16}
+    - name: ConcreteShort_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_40
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: -2}
+        - {x: -8, y: -5}
+        - {x: 16, y: -5}
+        - {x: 16, y: 0}
+        - {x: -7, y: 0}
+    - name: ConcreteShort_41
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 2}
+        - {x: -16, y: 0}
+        - {x: -16, y: -5}
+        - {x: -1, y: -5}
+        - {x: 16, y: -3}
+        - {x: 16, y: 2}
+      - - {x: 6, y: 11}
+        - {x: -3, y: 7}
+        - {x: -3, y: 4}
+        - {x: -2, y: 3}
+        - {x: 9, y: 3}
+        - {x: 16, y: 6}
+        - {x: 16, y: 11}
+    - name: ConcreteShort_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 2}
+        - {x: -16, y: -3}
+        - {x: 15, y: -3}
+        - {x: 16, y: -1}
+        - {x: 16, y: 4}
+        - {x: -8, y: 4}
+      - - {x: -16, y: 11}
+        - {x: -16, y: 6}
+        - {x: -12, y: 4}
+        - {x: 16, y: 4}
+        - {x: 16, y: 9}
+        - {x: -1, y: 11}
+    - name: ConcreteShort_43
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 6}
+        - {x: 16, y: 7}
+        - {x: 16, y: 12}
+        - {x: 9, y: 12}
+        - {x: -16, y: 9}
+        - {x: -16, y: -1}
+        - {x: 11, y: -1}
+        - {x: 16, y: 1}
+        - {x: 16, y: 6}
+        - {x: 10, y: 6}
+    - name: ConcreteShort_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 12}
+        - {x: -16, y: 1}
+        - {x: -2, y: 1}
+        - {x: 16, y: 2}
+        - {x: 16, y: 11}
+        - {x: 10, y: 12}
+    - name: ConcreteShort_45
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: 2}
+        - {x: 6, y: 1}
+        - {x: 16, y: 1}
+        - {x: 16, y: 16}
+    - name: ConcreteShort_46
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 1}
+        - {x: -14, y: -1}
+        - {x: 11, y: -1}
+        - {x: 13, y: 4}
+        - {x: 13, y: 16}
+        - {x: -3, y: 16}
+        - {x: -16, y: 13}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

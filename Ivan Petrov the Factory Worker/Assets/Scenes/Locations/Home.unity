@@ -2743,6 +2743,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11441136, guid: 0d9498fba4537644b8e20caa5fc48350, type: 2}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d9498fba4537644b8e20caa5fc48350, type: 2}
   m_IsPrefabParent: 0

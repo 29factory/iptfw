@@ -258,9 +258,17 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
   - 224: {fileID: 407715464}
   - 222: {fileID: 407715466}
   - 114: {fileID: 407715465}
+=======
+  - 224: {fileID: 891316487}
+  - 222: {fileID: 891316490}
+  - 114: {fileID: 891316489}
+  - 114: {fileID: 891316488}
+  - 114: {fileID: 891316491}
+>>>>>>> origin/add-000
   m_Layer: 5
   m_Name: paper
   m_TagString: Untagged
@@ -384,7 +392,22 @@ CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 436383470}
+=======
+  m_GameObject: {fileID: 891316486}
+--- !u!114 &891316491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891316486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> origin/add-000
 --- !u!1 &947668105
 GameObject:
   m_ObjectHideFlags: 0

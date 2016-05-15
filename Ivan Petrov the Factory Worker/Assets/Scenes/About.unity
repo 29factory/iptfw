@@ -376,7 +376,7 @@ GameObject:
   - 224: {fileID: 1484244559}
   - 222: {fileID: 1484244562}
   - 114: {fileID: 1484244560}
-  - 114: {fileID: 1484244563}
+  - 114: {fileID: 1484244561}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -454,13 +454,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &1484244562
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1484244558}
---- !u!114 &1484244563
+--- !u!114 &1484244561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -471,6 +465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &1484244562
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484244558}
 --- !u!1 &1599056109
 GameObject:
   m_ObjectHideFlags: 0

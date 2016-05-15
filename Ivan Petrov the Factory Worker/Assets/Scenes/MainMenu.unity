@@ -490,7 +490,7 @@ GameObject:
   - 224: {fileID: 601108201}
   - 222: {fileID: 601108204}
   - 114: {fileID: 601108202}
-  - 114: {fileID: 601108205}
+  - 114: {fileID: 601108203}
   m_Layer: 0
   m_Name: Play
   m_TagString: Untagged
@@ -568,13 +568,7 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &601108204
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 601108200}
---- !u!114 &601108205
+--- !u!114 &601108203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -585,6 +579,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &601108204
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601108200}
 --- !u!1 &735960801
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +668,7 @@ GameObject:
   - 224: {fileID: 803742787}
   - 222: {fileID: 803742790}
   - 114: {fileID: 803742788}
-  - 114: {fileID: 803742791}
+  - 114: {fileID: 803742789}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -746,13 +746,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &803742790
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 803742786}
---- !u!114 &803742791
+--- !u!114 &803742789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -763,6 +757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &803742790
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803742786}
 --- !u!1 &916818519
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +932,7 @@ GameObject:
   - 224: {fileID: 1484858162}
   - 222: {fileID: 1484858165}
   - 114: {fileID: 1484858163}
-  - 114: {fileID: 1484858166}
+  - 114: {fileID: 1484858164}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -1010,13 +1010,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &1484858165
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1484858161}
---- !u!114 &1484858166
+--- !u!114 &1484858164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1027,6 +1021,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &1484858165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484858161}
 --- !u!1 &1496957145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1098,7 @@ GameObject:
   - 224: {fileID: 1942632910}
   - 222: {fileID: 1942632913}
   - 114: {fileID: 1942632911}
-  - 114: {fileID: 1942632914}
+  - 114: {fileID: 1942632912}
   m_Layer: 0
   m_Name: About
   m_TagString: Untagged
@@ -1176,13 +1176,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &1942632913
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1942632909}
---- !u!114 &1942632914
+--- !u!114 &1942632912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1193,3 +1187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5510de15146a004f800eed936b06569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &1942632913
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942632909}

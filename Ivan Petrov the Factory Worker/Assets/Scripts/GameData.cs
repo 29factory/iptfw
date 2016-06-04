@@ -7,6 +7,7 @@ public sealed class GameData {
     public Regime regime;
 
     public float[] stats = new float[] { 100, 80, 40, 0, 40 }, oldStats = new float[] { 100, 80, 40, 0, 40 };
+    public int[] products = new int[] { 0, 0 };
 
     public SceneBetweener betweener;
 
@@ -83,6 +84,11 @@ public enum StatCondition {
     Normal = 2,
     MoreThan80 = 3,
     //Hundred = 4
+}
+
+public enum Product {
+    NuclearMissileShell = 0,
+    NewYearDecorations = 1
 }
 
 [Serializable]

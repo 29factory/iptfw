@@ -8,6 +8,8 @@ public sealed class GameData {
 
     public float[] stats = new float[] { 100, 80, 40, 0, 40 }, oldStats = new float[] { 100, 80, 40, 0, 40 };
     public int[] products = new int[] { 0, 0 };
+    public int[] tickets = new int[] { 0, 0, 0 };
+    public int[] inventory = new int[] { 0, 0, 0 };
 
     public SceneBetweener betweener;
 
@@ -89,6 +91,12 @@ public enum StatCondition {
 public enum Product {
     NuclearMissileShell = 0,
     NewYearDecorations = 1
+}
+
+public enum Ticket {
+    Bread = 0,
+    Water = 1,
+    Vodka = 2
 }
 
 [Serializable]

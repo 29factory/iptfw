@@ -23,6 +23,7 @@ public sealed class GameData {
         betweener = new SceneBetweener ();
         betweener.location = l;
         betweener.appearAt = p;
+        betweener.direction = new VectorData (0, -1, 0);
     }
 
     public static GameData Create (VectorData p, Regime r = Regime.Zheleznov, Location l = Location.Home) {
@@ -64,12 +65,25 @@ public enum StatCondition {
 public sealed class VectorData {
     public float x, y, z;
 
+    public VectorData (float x, float y, float z = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public VectorData (Vector3 v) {
+        x = v.x;
+        y = v.y;
+        z = v.z;
+    }
+
+    public VectorData (Vector2 v) {
+        x = v.x;
+        y = v.y;
+    }
+
     public static implicit operator VectorData (Vector3 v) {
-        VectorData sv = new VectorData ();
-        sv.x = v.x;
-        sv.y = v.y;
-        sv.z = v.z;
-        return sv;
+        return new VectorData (v);
     }
 
     public static implicit operator Vector3 (VectorData sv) {
@@ -77,10 +91,7 @@ public sealed class VectorData {
     }
 
     public static implicit operator VectorData (Vector2 v) {
-        VectorData sv = new VectorData ();
-        sv.x = v.x;
-        sv.y = v.y;
-        return sv;
+        return new VectorData (v);
     }
 
     public static implicit operator Vector2 (VectorData sv) {
@@ -92,4 +103,5 @@ public sealed class VectorData {
 public sealed class SceneBetweener {
     public Location location;
     public VectorData appearAt;
+    public VectorData direction;
 }

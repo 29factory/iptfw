@@ -7,9 +7,10 @@ public static class GameManagement {
         private set;
     }
 
-    public static void Save (Location location, VectorData position) {
+    public static void Save (Location location, VectorData position, VectorData direction) {
         gameData.betweener.appearAt = position;
         gameData.betweener.location = location;
+        gameData.betweener.direction = direction;
         if (!Directory.Exists (Globals.savingPath))
             Directory.CreateDirectory (Globals.savingPath);
         {

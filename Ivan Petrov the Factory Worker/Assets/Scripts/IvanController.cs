@@ -10,6 +10,8 @@ public class IvanController : MonoBehaviour {
             GetComponent<Transform> ().position = GameManagement.gameData.betweener.appearAt;
         else
             GameManagement.CreateGameData ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position);
+        GetComponent<Animator> ().SetFloat ("DirectionX", GameManagement.gameData.betweener.direction.x);
+        GetComponent<Animator> ().SetFloat ("DirectionY", GameManagement.gameData.betweener.direction.y);
     }
 
 	void FixedUpdate () {
@@ -26,7 +28,7 @@ public class IvanController : MonoBehaviour {
         GetComponent<Animator> ().SetFloat ("SpeedX", Input.GetAxis("Horizontal"));
         GetComponent<Animator> ().SetFloat ("SpeedY", Input.GetAxis("Vertical"));
         if (Input.GetButtonDown ("Cancel")) {
-            GameManagement.Save ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position);
+            GameManagement.Save ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position, new VectorData(GetComponent<Animator>().GetFloat("DirectionX"), GetComponent<Animator>().GetFloat("DirectionY")));
             SceneManager.LoadScene ("Pause");
         }
 	}

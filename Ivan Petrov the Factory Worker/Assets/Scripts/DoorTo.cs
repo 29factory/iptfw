@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class DoorTo : MonoBehaviour {
@@ -9,6 +8,6 @@ public class DoorTo : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D c) {
         GameManagement.gameData.betweener.appearAt = appearAt;
         GameManagement.gameData.betweener.direction = new VectorData (c.GetComponent<Animator> ().GetFloat ("DirectionX"), c.GetComponent<Animator> ().GetFloat ("DirectionY"));
-		SceneManager.LoadScene (doorTo);
+        SceneManager.LoadScene (doorTo);
 	}
 }

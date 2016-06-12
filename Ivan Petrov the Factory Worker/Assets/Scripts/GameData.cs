@@ -23,7 +23,7 @@ public sealed class GameData {
         betweener = new SceneBetweener ();
         betweener.location = l;
         betweener.appearAt = p;
-        betweener.direction = new VectorData (0, -1, 0);
+        betweener.direction = new VectorData (0, -1);
     }
 
     public static GameData Create (VectorData p, Regime r = Regime.Zheleznov, Location l = Location.Home) {

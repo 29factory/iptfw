@@ -41,3 +41,9 @@ public static class Globals {
         statEffectGraph [Stat.Patriotism] [StatCondition.LessThan20] [Stat.Happiness] = p => p - 3;
     }
 }
+
+public static class EnumEx {
+    public static T Parse<T> (String s) {
+        return (T)System.Enum.Parse (typeof(T), s);
+    }
+}

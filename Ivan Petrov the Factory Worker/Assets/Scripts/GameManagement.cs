@@ -27,10 +27,10 @@ public static class GameManagement {
     public static void Load (string r) {
         if (File.Exists (Path.Combine (Globals.savingPath, r + Globals.savingExt))) {
             FileStream loadingFile = File.Open (Path.Combine (Globals.savingPath, r + Globals.savingExt), FileMode.Open, FileAccess.Read);
-            gameData = (GameData) new BinaryFormatter ().Deserialize (loadingFile);
+            gameData = (GameData)new BinaryFormatter ().Deserialize (loadingFile);
             loadingFile.Close ();
         } else
-            gameData = GameData.Create (new UnityEngine.Vector3 (0, 0), (Regime) System.Enum.Parse(typeof(Regime), r));
+            gameData = GameData.Create (UnityEngine.Vector2.zero, EnumEx.Parse<Regime> (r));
     }
 
     public static void CreateGameData (Location l, VectorData p, Regime r = Regime.Zheleznov) {

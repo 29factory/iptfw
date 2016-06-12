@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections;
 
 public class MouseOverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public void OnPointerEnter (PointerEventData e) {

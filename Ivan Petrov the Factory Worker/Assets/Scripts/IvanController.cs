@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class IvanController : MonoBehaviour {
@@ -9,15 +8,15 @@ public class IvanController : MonoBehaviour {
         if (GameManagement.gameData != null)
             GetComponent<Transform> ().position = GameManagement.gameData.betweener.appearAt;
         else
-            GameManagement.CreateGameData ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position);
+            GameManagement.CreateGameData (EnumEx.Parse<Location> (SceneManager.GetActiveScene ().name), GetComponent<Transform> ().position);
         GetComponent<Animator> ().SetFloat ("DirectionX", GameManagement.gameData.betweener.direction.x);
         GetComponent<Animator> ().SetFloat ("DirectionY", GameManagement.gameData.betweener.direction.y);
     }
 
 	void FixedUpdate () {
         GetComponent<Rigidbody2D> ().velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * speed;
-        GetComponent<Animator> ().SetBool ("IsWalking", GetComponent<Rigidbody2D> ().velocity != new Vector2 (0f, 0f));
-        if (GetComponent<Rigidbody2D> ().velocity != new Vector2 (0f, 0f)) {
+        GetComponent<Animator> ().SetBool ("IsWalking", GetComponent<Rigidbody2D> ().velocity != Vector2.zero);
+        if (GetComponent<Rigidbody2D> ().velocity != Vector2.zero) {
             if (GetComponent<Rigidbody2D> ().velocity.x > 0) GetComponent<Animator> ().SetFloat ("DirectionX", 1);
             else if (GetComponent<Rigidbody2D> ().velocity.x < 0) GetComponent<Animator> ().SetFloat ("DirectionX", -1);
             else GetComponent<Animator> ().SetFloat ("DirectionX", 0);
@@ -28,7 +27,7 @@ public class IvanController : MonoBehaviour {
         GetComponent<Animator> ().SetFloat ("SpeedX", Input.GetAxis("Horizontal"));
         GetComponent<Animator> ().SetFloat ("SpeedY", Input.GetAxis("Vertical"));
         if (Input.GetButtonDown ("Cancel")) {
-            GameManagement.Save ((Location) System.Enum.Parse(typeof(Location), SceneManager.GetActiveScene().name), GetComponent<Transform> ().position, new VectorData(GetComponent<Animator>().GetFloat("DirectionX"), GetComponent<Animator>().GetFloat("DirectionY")));
+            GameManagement.Save (EnumEx.Parse<Location> (SceneManager.GetActiveScene ().name), GetComponent<Transform> ().position, new VectorData(GetComponent<Animator>().GetFloat("DirectionX"), GetComponent<Animator>().GetFloat("DirectionY")));
             SceneManager.LoadScene ("Pause");
         }
 	}

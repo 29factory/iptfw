@@ -12,8 +12,7 @@ public class RegimeSelector : MonoBehaviour {
 
     public void Delete(string r) {
         GameManagement.Delete (r);
-        UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().interactable = false;
-        //GameObject.Find ("/Canvas/paper/" + r + "Delete").GetComponent<Button> ().interactable = false;
+        GameObject.Find ("/Canvas/paper/" + r + "Delete").GetComponent<Button> ().interactable = false;
     }
 
     void Awake () {

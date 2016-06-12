@@ -3828,6 +3828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88726d57da51321439ddd23703b5e653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions:
+  - Eat bread
+  - Drink vodka
 --- !u!212 &915315736
 SpriteRenderer:
   m_ObjectHideFlags: 0

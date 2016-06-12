@@ -2,8 +2,13 @@
 using System.Collections;
 
 public class Bench : Backlight {
-    protected override void Action () {
-        GameManagement.gameData.products [1]++;
-        Debug.Log ("New Year decorations: " + GameManagement.gameData.products[1]);
+    protected override void Action (int act) {
+        GameManagement.gameData.products [act]++;
+        Debug.Log ((act == 0 ? "Nuclear missile shells" : "New Year decorations") + ": " + GameManagement.gameData.products[act]);
+    }
+
+    protected override string GetTitle ()
+    {
+        return "Bench";
     }
 }
